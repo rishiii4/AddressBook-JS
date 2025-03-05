@@ -73,6 +73,17 @@ function editContact(firstName, lastName, newDetails) {
         console.log("Contact not found.");
     }
 }
+// UC 5 function to delete an existing contact
+function deleteContact(firstName, lastName) {
+    let index = addressBook.findIndex(c => c.firstName === firstName && c.lastName === lastName);
+    let contact = addressBook[index];
+    if (index !== -1) {
+        addressBook.splice(index, 1);
+        console.log(`Contact deleted successfully :`, contact.toString());
+    } else {
+        console.log("Contact not found.");
+    }
+}
 
 // UC3 Creating a Contact and storing it in an array
 let addressBook = [];
@@ -85,6 +96,9 @@ addressBook.push(contact2);
 
 // Editing the contact 2
 editContact("Mohit", "Bairagi", {city: "Arjun Nagar"})
+
+// Deleting the contact1
+deleteContact("Arpit", "Gourr");
 
 // Displaying all contacts
 addressBook.forEach(contact => console.log(contact.toString()));
