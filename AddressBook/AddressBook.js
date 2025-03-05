@@ -90,6 +90,18 @@ function deleteContact(firstName, lastName) {
 // UC 6 function to find number of contact
 let getContactCount = ()=> {return addressBook.reduce(count => count + 1, 0)};
 
+// UC 7 Function to add a contact only if it's not a duplicate
+function addContact(newContact) {
+    let isDuplicate = addressBook.filter(c => c.firstName === newContact.firstName && c.lastName === newContact.lastName).length > 0;
+
+    if (isDuplicate) {
+        console.log(`Duplicate entry! Contact ${newContact.firstName} ${newContact.lastName} already exists.`);
+    } else {
+        addressBook.push(newContact);
+        console.log(`Contact ${newContact.firstName} ${newContact.lastName} added successfully.`);
+    }
+}
+
 // UC3 Creating a Contact and storing it in an array
 let addressBook = [];
 
@@ -97,9 +109,6 @@ let contact1 = new Contact("Arpit", "Gourr", "123 Sector", "Bhopal", "MadhyaPrad
 addressBook.push(contact1);
 
 let contact2 = new Contact("Mohit", "Bairagi", "420 Sector", "Bhopal", "MadhyaPradesh", "100991", "1239877890", "mohit.bairagi@example.com");
-addressBook.push(contact2);
-
-let contact3 = new Contact("Mohit", "Bairagi", "420 Sector", "Bhopal", "MadhyaPradesh", "100991", "1239877890", "mohit.bairagi@example.com");
 addressBook.push(contact2);
 
 // Editing the contact 2
@@ -113,3 +122,9 @@ addressBook.forEach(contact => console.log(contact.toString()));
 
 // Finding total contacts
 console.log(getContactCount());
+
+// Adding Duplicate Contact
+addContact(new Contact("Mohit", "Bairagi", "420 Sector", "Bhopal", "MadhyaPradesh", "100991", "1239877890", "mohit.bairagi@example.com"));
+
+// Display updated contacts
+console.log("Updated Address Book:", addressBook.map(c => c.toString()));
