@@ -61,6 +61,7 @@ class Contact {
         return email;
     }
 }
+
 // UC 4 Function to find and edit a contact
 function editContact(firstName, lastName, newDetails) {
     let contact = addressBook.find(c => c.firstName === firstName && c.lastName === lastName);
@@ -73,6 +74,7 @@ function editContact(firstName, lastName, newDetails) {
         console.log("Contact not found.");
     }
 }
+
 // UC 5 function to delete an existing contact
 function deleteContact(firstName, lastName) {
     let index = addressBook.findIndex(c => c.firstName === firstName && c.lastName === lastName);
@@ -85,6 +87,9 @@ function deleteContact(firstName, lastName) {
     }
 }
 
+// UC 6 function to find number of contact
+let getContactCount = ()=> {return addressBook.reduce(count => count + 1, 0)};
+
 // UC3 Creating a Contact and storing it in an array
 let addressBook = [];
 
@@ -92,6 +97,9 @@ let contact1 = new Contact("Arpit", "Gourr", "123 Sector", "Bhopal", "MadhyaPrad
 addressBook.push(contact1);
 
 let contact2 = new Contact("Mohit", "Bairagi", "420 Sector", "Bhopal", "MadhyaPradesh", "100991", "1239877890", "mohit.bairagi@example.com");
+addressBook.push(contact2);
+
+let contact3 = new Contact("Mohit", "Bairagi", "420 Sector", "Bhopal", "MadhyaPradesh", "100991", "1239877890", "mohit.bairagi@example.com");
 addressBook.push(contact2);
 
 // Editing the contact 2
@@ -102,3 +110,6 @@ deleteContact("Arpit", "Gourr");
 
 // Displaying all contacts
 addressBook.forEach(contact => console.log(contact.toString()));
+
+// Finding total contacts
+console.log(getContactCount());
