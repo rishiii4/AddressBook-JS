@@ -61,12 +61,30 @@ class Contact {
         return email;
     }
 }
+// UC 4 Function to find and edit a contact
+function editContact(firstName, lastName, newDetails) {
+    let contact = addressBook.find(c => c.firstName === firstName && c.lastName === lastName);
+    
+    if (contact) {
+        // new details is an object
+        Object.assign(contact, newDetails);
+        console.log("Contact updated successfully:", contact.toString());
+    } else {
+        console.log("Contact not found.");
+    }
+}
 
 // UC3 Creating a Contact and storing it in an array
 let addressBook = [];
 
 let contact1 = new Contact("Arpit", "Gourr", "123 Sector", "Bhopal", "MadhyaPradesh", "100991", "1234567890", "arpit.gourr@example.com");
 addressBook.push(contact1);
+
+let contact2 = new Contact("Mohit", "Bairagi", "420 Sector", "Bhopal", "MadhyaPradesh", "100991", "1239877890", "mohit.bairagi@example.com");
+addressBook.push(contact2);
+
+// Editing the contact 2
+editContact("Mohit", "Bairagi", {city: "Arjun Nagar"})
 
 // Displaying all contacts
 addressBook.forEach(contact => console.log(contact.toString()));
