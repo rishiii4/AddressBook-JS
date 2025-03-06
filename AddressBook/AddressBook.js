@@ -134,6 +134,14 @@ function sortContacts() {
     console.log(addressBook.map(contact => contact.toString()).join("\n"));
 }
 
+// UC 12 Function to sort contacts by a given property (city, state, or zip)
+function sortContactsBy(property) {
+    addressBook.sort((a, b) => a[property].localeCompare(b[property]));
+
+    console.log(`Sorted Address Book by ${property}:`);
+    console.log(addressBook.map(contact => contact.toString()).join("\n"));
+}
+
 // UC3 Creating a Contact and storing it in an array
 let addressBook = [];
 
@@ -178,3 +186,6 @@ console.log("Contact Count  : " + countContactsByState("MadhyaPradesh"));
 
 // Sorting contact
 sortContacts();
+
+// Sorting by city 
+sortContactsBy("city");
