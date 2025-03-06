@@ -102,6 +102,16 @@ function addContact(newContact) {
     }
 }
 
+// UC 8 Function to find contacts by city
+function findContactsByCity(city) {
+    return addressBook.filter(contact => contact.city === city).toString();
+}
+
+// UC 8 Function to find contacts by state
+function findContactsByState(state) {
+    return addressBook.filter(contact => contact.state === state).toString();
+}
+
 // UC3 Creating a Contact and storing it in an array
 let addressBook = [];
 
@@ -110,6 +120,12 @@ addressBook.push(contact1);
 
 let contact2 = new Contact("Mohit", "Bairagi", "420 Sector", "Bhopal", "MadhyaPradesh", "100991", "1239877890", "mohit.bairagi@example.com");
 addressBook.push(contact2);
+
+let contact3 = new Contact("Rishi", "Shrivastav", "440 Sector", "Bhopal", "MadhyaPradesh", "100991", "6549877890", "rishi.sir@example.com");
+addressBook.push(contact3);
+
+let contact4 = new Contact("Dharmendra", "Saini", "442 Sector", "Basoda", "MadhyaPradesh", "100991", "9879877890", "saini.dhar@example.com");
+addressBook.push(contact4);
 
 // Editing the contact 2
 editContact("Mohit", "Bairagi", {city: "Arjun Nagar"})
@@ -128,3 +144,9 @@ addContact(new Contact("Mohit", "Bairagi", "420 Sector", "Bhopal", "MadhyaPrades
 
 // Display updated contacts
 console.log("Updated Address Book:", addressBook.map(c => c.toString()));
+
+// Finding contact by state
+console.log("Contact , " + findContactsByState("MadhyaPradesh"));
+
+// Finding contact by city
+console.log("Contact , " + findContactsByCity("Arjun Nagar"));
