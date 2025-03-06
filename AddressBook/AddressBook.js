@@ -102,12 +102,12 @@ function addContact(newContact) {
     }
 }
 
-// UC 8 Function to find contacts by city
+// UC 8 and 9 Function to find and view contacts by city
 function findContactsByCity(city) {
     return addressBook.filter(contact => contact.city === city).toString();
 }
 
-// UC 8 Function to find contacts by state
+// UC 8 and 9 Function to find and view contacts by state
 function findContactsByState(state) {
     return addressBook.filter(contact => contact.state === state).toString();
 }
