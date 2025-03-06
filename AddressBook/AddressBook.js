@@ -122,6 +122,18 @@ function countContactsByState(state) {
     return addressBook.reduce((count, contact) => contact.state === state ? count + 1 : count, 0);
 }
 
+// UC 11 Function to sort contacts alphabetically by full name
+function sortContacts() {
+    addressBook.sort((a, b) => {
+        let nameA = a.firstName.toLowerCase() + " " + a.lastName.toLowerCase();
+        let nameB = b.firstName.toLowerCase() + " " + b.lastName.toLowerCase();
+        return nameA.localeCompare(nameB); // Compare names alphabetically
+    });
+
+    console.log("Sorted Address Book:");
+    console.log(addressBook.map(contact => contact.toString()).join("\n"));
+}
+
 // UC3 Creating a Contact and storing it in an array
 let addressBook = [];
 
@@ -163,3 +175,6 @@ console.log("Contact , " + findContactsByCity("Arjun Nagar"));
 
 // Count contact by State
 console.log("Contact Count  : " + countContactsByState("MadhyaPradesh"));
+
+// Sorting contact
+sortContacts();
